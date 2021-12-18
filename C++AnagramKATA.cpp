@@ -8,26 +8,27 @@
 #include <algorithm>
 using namespace std;
 
+//Funcion para agrupar anagramas de una lista de palabras dadas
 set<set<string>> groupAnagrams(vector<string> const& words)
 {
-
+    //un set para guardar anagrams
     set<set<string>> anagrams;
 
-    // construct a vector from the given words with each word sorted
+    // construir un vector con las palabras dadas con cada palabra sorteada
     vector<string> list(words);
     for (string& s : list) 
-    {        // don't forget to put `&`
+    {        
         sort(s.begin(), s.end());
     }
-    // construct a map where the key is each sorted word,
-    // and value is a list of indices where it is present
+    // construct un mapa en el que el key es cada palabra sorteada
+    // value es una lista de indices donde esta presente
     unordered_map<string, vector<int>> map;
     for (int i = 0; i < words.size(); i++) 
     {
         map[list[i]].push_back(i);
     }
-    // traverse the map and read indices for each sorted key.
-    // The anagrams are present in the actual list at those indices
+    // traversa el mapa y lee indices para cada key sorteado
+    // Los anagramas estan presentes en el list actual en esos indices
     for (auto itr : map)
     {
         set<string> anagram;
@@ -42,7 +43,7 @@ set<set<string>> groupAnagrams(vector<string> const& words)
 }
 int main()
 {
-    // vector of words
+    // vector de words
     vector<string> words =
     {
         "kinship", "enlist", "boaster", "fresher", "sinks", "knits", "rots",
@@ -50,10 +51,10 @@ int main()
         "listen", "borates", "silent"
     };
 
-    // get set containing all the anagrams grouped together
+    // get set con todos los anagramas agrupados
     set<set<string>> anagrams = groupAnagrams(words);
 
-    // print the result
+    // print el resultado
     for (set<string> anagram : anagrams) 
     {
         for (string s : anagram) 
