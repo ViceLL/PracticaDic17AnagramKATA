@@ -47,7 +47,7 @@ int main()
     vector<string> words =
     {
         "kinship", "enlist", "boaster", "fresher", "sinks", "knits", "rots",
-        "pinkfish", "inlets", "boaters", "refresh", "skins", "stink", "sort",
+        "pinkish", "inlets", "boaters", "refresh", "skins", "stink", "sort",
         "listen", "borates", "silent"
     };
 
